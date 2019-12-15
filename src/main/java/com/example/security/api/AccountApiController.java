@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/account")
 public class AccountApiController {
 
-    final AccountRepository accountRepository;
+    private AccountRepository accountRepository;
 
     public AccountApiController(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
