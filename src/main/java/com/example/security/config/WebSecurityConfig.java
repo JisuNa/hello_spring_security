@@ -18,14 +18,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("manager")
                 .password("{noop}1111")
-                .roles("MANAGER");
+                .roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/guest/**").permitAll()           // permitAll: 모든 사용자가 접근가능
-                .antMatchers("/manager/**").hasRole("MANAGER")  // hasRole: 해당 룰을 가진 사용자 접근가
+                .antMatchers("/account/**").hasRole("MANAGER")  // hasRole: 해당 룰을 가진 사용자 접근가
+                .antMatchers("/account/**").hasRole("ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN");
 
         http.formLogin();   // 스프링시큐리티에서 제공하는 기본 로그인페이지를 사용하겠다.
