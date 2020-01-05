@@ -6,13 +6,15 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="account")
-public class Account {
+@Table(name="accounts")
+public class Accounts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
-    private String account_id;
+    private String accountId;
+    private String name;
+    private String role;
     private String password;
-    private char is_deleted;
+    private char isDeleted;
 }

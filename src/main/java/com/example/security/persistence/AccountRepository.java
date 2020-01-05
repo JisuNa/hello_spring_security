@@ -1,9 +1,9 @@
 package com.example.security.persistence;
 
-import com.example.security.entity.Account;
+import com.example.security.entity.Accounts;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AccountRepository extends JpaRepository<Account, Long> {
+public interface AccountRepository extends JpaRepository<Accounts, Long> {
 
-    Account findByAccount_id(String account_id);
+    Accounts findByAccountId(String account_id);
 }

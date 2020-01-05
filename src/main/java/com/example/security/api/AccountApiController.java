@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/account")
+@RequestMapping(value = "/accounts")
 public class AccountApiController {
 
     private AccountRepository accountRepository;
     private AccountService accountService;
 
-    public AccountApiController(AccountRepository accountRepository) {
+    public AccountApiController(AccountRepository accountRepository, AccountService accountService) {
         this.accountRepository = accountRepository;
+        this.accountService = accountService;
     }
 
     @GetMapping(value = "")
@@ -26,10 +27,9 @@ public class AccountApiController {
         return new ResponseEntity<>(accountRepository.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/join")
+    @GetMapping(value = "/join")
     public ResponseEntity<?> joinAdmin() {
-//        accountService.createAccount("");
-        return new ResponseEntity<>("", HttpStatus.OK);
+        return new ResponseEntity<>(accountService.joinAccount(), HttpStatus.OK);
     }
 
 }
