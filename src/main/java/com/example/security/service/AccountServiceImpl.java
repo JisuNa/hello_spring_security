@@ -25,26 +25,18 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     public AccountServiceImpl(PasswordEncoder passwordEncoder, AccountRepository accountRepository) {
-        this.passwordEncoder = passwordEncoder;
         this.accountRepository = accountRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public Accounts joinAccount() {
         Accounts accounts = new Accounts();
         accounts.setAccountId("admin");
-        accounts.setRole("ADMIN");
+        accounts.setRole("ROLE_ADMIN");
         accounts.setName("어드민");
         accounts.setPassword(passwordEncoder.encode("1111"));
         return accountRepository.save(accounts);
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String account_id) throws UsernameNotFoundException {
-        Accounts accounts = accountRepository.findByAccountId(account_id);
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(accounts.getRole()))
-        return new User(accounts.getAccountId(), accounts.getPassword(), authorities);
     }
 
     @Override
