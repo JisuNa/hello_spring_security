@@ -1,12 +1,11 @@
 package com.example.security.service;
 
-import com.example.security.entity.Accounts;
-import org.springframework.security.core.userdetails.UserDetails;
+import com.example.security.entity.Admins;
 
 public interface AccountService {
 
-    public Accounts joinAccount();
-    public Accounts getAccountByAccountId(String account_id);
-    public void createAccount(Accounts account);
+    public Admins joinAccount();
+    public Admins getAccountByAccountId(String account_id);
+    public void createAccount(Admins account);
 
 }
