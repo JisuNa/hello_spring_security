@@ -1,6 +1,7 @@
 package com.example.security.entity;
 
 import lombok.Data;
+import org.springframework.security.core.SpringSecurityCoreVersion;
 
 import javax.persistence.*;
 
@@ -8,6 +9,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="ADMINS")
 public class Admins {
+
+    private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +21,5 @@ public class Admins {
     private String role;
     private String password;
     @Column(name="is_deleted")
-    private char isDeleted;
+    private int isDeleted = 0;
 }

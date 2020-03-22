@@ -21,13 +21,11 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Admins joinAccount() {
-        Admins accounts = new Admins();
-        accounts.setAccountId("admin");
-        accounts.setRole("ROLE_ADMIN");
-        accounts.setName("어드민");
-        accounts.setPassword(passwordEncoder.encode("1111"));
-        return accountRepository.save(accounts);
+    public Admins joinAccount(Admins admins) {
+        admins.setRole("ROLE_ADMIN");
+        admins.setName("어드민");
+        admins.setPassword(passwordEncoder.encode(admins.getPassword()));
+        return accountRepository.save(admins);
     }
 
     @Override
