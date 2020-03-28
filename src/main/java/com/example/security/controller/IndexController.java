@@ -1,18 +1,12 @@
 package com.example.security.controller;
 
-import com.example.security.entity.Admins;
+import com.example.security.entity.Admin;
 import com.example.security.persistence.AccountRepository;
 import com.example.security.service.AccountService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.security.Principal;
 
 @Controller
@@ -38,11 +32,6 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping(value="/account/list")
-    public ResponseEntity<?> accountList() {
-        return new ResponseEntity<>(accountRepository.findAll(), HttpStatus.OK);
-    }
-
     // 회원가입 페이지
     @GetMapping(value="/join")
     public String joinPage() {
@@ -51,7 +40,7 @@ public class IndexController {
 
     // 회원가입하기
     @PostMapping(value="/join")
-    public String joinAction(@ModelAttribute Admins admins) {
+    public String joinAction(@ModelAttribute Admin admins) {
         accountService.joinAccount(admins);
         return "login";
     }

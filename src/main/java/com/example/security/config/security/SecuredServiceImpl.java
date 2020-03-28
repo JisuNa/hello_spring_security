@@ -1,6 +1,6 @@
 package com.example.security.config.security;
 
-import com.example.security.entity.Admins;
+import com.example.security.entity.Admin;
 import com.example.security.persistence.AccountRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,7 +24,7 @@ public class SecuredServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String accountId) throws UsernameNotFoundException {
-        Admins accounts = accountRepository.findByAccountId(accountId);
+        Admin accounts = accountRepository.findByAccountId(accountId);
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(accounts.getRole()));
         return new User(accounts.getAccountId(), accounts.getPassword(), authorities);

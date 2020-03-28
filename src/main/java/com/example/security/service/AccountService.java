@@ -1,11 +1,11 @@
 package com.example.security.service;
 
-import com.example.security.entity.Admins;
+import com.example.security.entity.Admin;
 
 public interface AccountService {
 
-    public Admins joinAccount(Admins admins);
-    public Admins getAccountByAccountId(String account_id);
-    public void createAccount(Admins account);
+    public Admin joinAccount(Admin admins);
+    public Admin getAccountByAccountId(String account_id);
+    public void createAccount(Admin account);
 
 }

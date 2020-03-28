@@ -1,9 +1,9 @@
 package com.example.security.persistence;
 
-import com.example.security.entity.Admins;
+import com.example.security.entity.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AccountRepository extends JpaRepository<Admins, Long> {
+public interface AccountRepository extends JpaRepository<Admin, Long> {
 
-    Admins findByAccountId(String account_id);
+    Admin findByAccountId(String account_id);
 }

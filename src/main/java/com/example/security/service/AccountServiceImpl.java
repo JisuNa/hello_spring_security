@@ -1,6 +1,6 @@
 package com.example.security.service;
 
-import com.example.security.entity.Admins;
+import com.example.security.entity.Admin;
 import com.example.security.persistence.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Admins joinAccount(Admins admins) {
+    public Admin joinAccount(Admin admins) {
         admins.setRole("ROLE_ADMIN");
         admins.setName("어드민");
         admins.setPassword(passwordEncoder.encode(admins.getPassword()));
@@ -29,12 +29,12 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Admins getAccountByAccountId(String account_id) {
+    public Admin getAccountByAccountId(String account_id) {
         return accountRepository.findByAccountId(account_id);
     }
 
     @Override
-    public void createAccount(Admins account) {
+    public void createAccount(Admin account) {
         accountRepository.save(account);
     }
 }
