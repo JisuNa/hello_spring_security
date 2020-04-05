@@ -3,6 +3,7 @@ package com.example.security.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Date;
 
 @Data
@@ -12,7 +13,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long seq;
+    public BigInteger seq;
     @Column(name="user_email")
     public String user_email;
     public String password;

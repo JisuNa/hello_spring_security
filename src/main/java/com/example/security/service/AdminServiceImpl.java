@@ -1,7 +1,7 @@
 package com.example.security.service;
 
 import com.example.security.entity.Admin;
-import com.example.security.persistence.AccountRepository;
+import com.example.security.persistence.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AccountServiceImpl implements AccountService {
+public class AdminServiceImpl implements AccountService {
 
     private PasswordEncoder passwordEncoder;
-    private final AccountRepository accountRepository;
+    private final AdminRepository accountRepository;
 
     @Autowired
-    public AccountServiceImpl(PasswordEncoder passwordEncoder, AccountRepository accountRepository) {
+    public AdminServiceImpl(PasswordEncoder passwordEncoder, AdminRepository accountRepository) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
     }

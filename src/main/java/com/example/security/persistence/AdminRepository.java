@@ -3,7 +3,9 @@ package com.example.security.persistence;
 import com.example.security.entity.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AccountRepository extends JpaRepository<Admin, Long> {
+import java.math.BigInteger;
+
+public interface AdminRepository extends JpaRepository<Admin, BigInteger> {
 
     Admin findByAccountId(String account_id);
 }

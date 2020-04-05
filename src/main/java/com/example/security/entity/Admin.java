@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.security.core.SpringSecurityCoreVersion;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Data
 @Entity
@@ -14,7 +15,7 @@ public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long seq;
+    private BigInteger seq;
     @Column(name="account_id")
     private String accountId;
     private String name;
@@ -22,4 +23,10 @@ public class Admin {
     private String password;
     @Column(name="is_deleted")
     private int isDeleted = 0;
+
+//    public Admin(Long seq, String accountId, String password) {
+//        this.seq = seq;
+//        this.accountId = accountId;
+//        this.password = password;
+//    }
 }

@@ -57,11 +57,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //         fullyAuthenticated : 사용자가 모든 크리덴셜을 갖춘 상태에서 인증했는지 확인
 
         http.authorizeRequests()
-                .antMatchers("/**","/account/**","/joins","/join/**").permitAll()
-//                .antMatchers("/guest/**").permitAll()
-                .antMatchers("/account/**").hasRole("MANAGER")  // hasRole: 해당 룰을 가진 사용자 접근가
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                .antMatchers("/","/joins","/join/**").permitAll()
+//                .antMatchers("/account/**").hasRole("MANAGER")  // hasRole: 해당 룰을 가진 사용자 접근가
+                .anyRequest().access("@authorizationChecker.check(request, authentication)")
+//                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")

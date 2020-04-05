@@ -1,7 +1,7 @@
 package com.example.security.controller;
 
 import com.example.security.entity.Admin;
-import com.example.security.persistence.AccountRepository;
+import com.example.security.persistence.AdminRepository;
 import com.example.security.service.AccountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +12,10 @@ import java.security.Principal;
 @Controller
 public class IndexController {
 
-    private AccountRepository accountRepository;
+    private AdminRepository accountRepository;
     private AccountService accountService;
 
-    public IndexController(AccountRepository accountRepository, AccountService accountService) {
+    public IndexController(AdminRepository accountRepository, AccountService accountService) {
         this.accountRepository = accountRepository;
         this.accountService = accountService;
     }
